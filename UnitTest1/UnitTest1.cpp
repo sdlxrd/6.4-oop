@@ -14,7 +14,7 @@ namespace UnitTest1
 		{
 			Vector<int> V(5);
 			V.Fill(0);
-			Assert::AreEqual(true, V.Task());
+			Assert::AreEqual(true, V.Equal());
 		}
 	};
 }
