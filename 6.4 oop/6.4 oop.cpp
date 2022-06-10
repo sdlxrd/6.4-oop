@@ -14,7 +14,7 @@ public:
 	~Vector(); 
 	
 	void Fill(int a);
-	bool Task(void);
+	bool Equal(void);
 
 	Vector& operator = (const Vector&); 
 	friend ostream& operator << <>(ostream&, const Vector&);
@@ -44,22 +44,14 @@ Vector<T>::~Vector()
 }
 
 template <class T>
-bool Vector<T>::Task(void) 
+bool Vector<T>::Equal(void) 
 {
-	for (int i = 0; i < size - 1; i++)
-		if (i == 0)
-		{
-			if (v[i] == v[i + 1] == v[i + 2])
-			{
-				return false;
-			}
-		}
-		else
-			if (v[i - 1] == v[i] == v[i + 1])
-			{
-				return false;
-			}
-		return true;
+	for (int i = 0; i < size; i++)
+	{
+		if (v[i] == v[i + 1])
+			return true;
+	}
+	return false;
 }
 
 template <class T>
@@ -112,15 +104,16 @@ int main()
 
 		cout << "U = " << U << endl;
 		cout << "V = " << V << endl;
-		
-		cout << "U " << (U.Task() ? "doesn't contain " : "containes ") << "same neighboring parts" << endl;
-		cout << "V " << (V.Task() ? "doesn't contain " : "containes ") << "same neighboring parts" << endl;
-  	}
+
+		cout << "U:\t" << (U.Equal() ? "containes " : "doesn't contain ") << "same neighboring parts" << endl;
+		cout << "V:\t" << (V.Equal() ? "containes " : "doesn't contain ") << "same neighboring parts" << endl;
+	}
 	catch (exception e)
 	{
 		cerr << e.what() << endl;
 	}
+	cout << endl;
 	system("pause");
- 	return 0;
+	return 0;
 }
  
