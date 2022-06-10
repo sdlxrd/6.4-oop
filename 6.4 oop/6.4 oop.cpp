@@ -13,7 +13,7 @@ public:
 	Vector(Vector&); 
 	~Vector(); 
 	
-	void five(int a);
+	void Fill(int a);
 	bool Task(void);
 
 	Vector& operator = (const Vector&); 
@@ -47,7 +47,6 @@ template <class T>
 bool Vector<T>::Task(void) 
 {
 	for (int i = 0; i < size - 1; i++)
-
 		if (i == 0)
 		{
 			if (v[i] == v[i + 1] == v[i + 2])
@@ -64,7 +63,7 @@ bool Vector<T>::Task(void)
 }
 
 template <class T>
-void Vector<T>::five(int a)
+void Vector<T>::Fill(int a)
 {
 	for (int i = 0; i < size; i++) // присвоєння нульових значень елементам
 		v[i] = a;
@@ -108,19 +107,20 @@ int main()
 	try
 	{
 		Vector<int> V(5), U(5);
-		cin >> V;
 		cin >> U;
+		cin >> V;
 
 		cout << "U = " << U << endl;
 		cout << "V = " << V << endl;
 		
-		cout << "V " << (V.Task() ? "doesn't contain " : "containes ") << "same neighboring parts" << endl;
 		cout << "U " << (U.Task() ? "doesn't contain " : "containes ") << "same neighboring parts" << endl;
-	}
+		cout << "V " << (V.Task() ? "doesn't contain " : "containes ") << "same neighboring parts" << endl;
+  	}
 	catch (exception e)
 	{
 		cerr << e.what() << endl;
 	}
 	system("pause");
-	return 0;
+ 	return 0;
 }
+ 

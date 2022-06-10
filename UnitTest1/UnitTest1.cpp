@@ -13,7 +13,7 @@ namespace UnitTest1
 		TEST_METHOD(TestMethod1)
 		{
 			Vector<int> V(5);
-			V.five(0);
+			V.Fill(0);
 			Assert::AreEqual(true, V.Task());
 		}
 	};
